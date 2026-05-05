@@ -14,6 +14,9 @@ app.use(express.json());
 
 // Routes
 app.use('/api/auth', require('./routes/authRoutes'));
+app.use('/api/standups', require('./routes/standupRoutes'));
+app.use('/api/blockers', require('./routes/blockerRoutes'));
+app.use('/api/dashboard', require('./routes/dashboardRoutes'));
 
 // Health check
 app.get('/', (req, res) => {
