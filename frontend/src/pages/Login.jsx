@@ -41,7 +41,7 @@ const Login = () => {
         {/* Header */}
         <div className="text-center mb-8">
           <h1 className="text-3xl font-bold text-blue-600">WorkPulse</h1>
-          <p className="text-gray-500 mt-1">Team Standup Tracker</p>
+          <p className="text-gray-500 mt-1">Team Standup & Blocker Management System</p>
         </div>
 
         {/* Error message */}

@@ -1,0 +1,414 @@
+{
+  "info": {
+    "_postman_id": "8646b1bf-3cb4-4ded-b582-83b72bd2bcfe",
+    "name": "WorkPulse API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "54350129",
+    "_collection_link": "https://go.postman.co/collection/54350129-8646b1bf-3cb4-4ded-b582-83b72bd2bcfe?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "Register User",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Test User\",\r\n  \"email\": \"test@workpulse.com\",\r\n  \"password\": \"password123\",\r\n  \"role\": \"employee\",\r\n  \"team\": \"Engineering\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/auth/register",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "auth",
+                "register"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"email\": \"admin@workpulse.com\",\r\n  \"password\": \"password123\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/auth/login",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Current User",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5Zjk1NjU2NjVmYjQzZDIyMGY3Y2Q1NCIsImlhdCI6MTc3Nzk1MDI2MCwiZXhwIjoxNzc4NTU1MDYwfQ.kL_iAQJARGkxO8f00OrQotLXfDDd8ku3KxYkOOpWBDk",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5000/api/auth/me",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "auth",
+                "me"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Standups",
+      "item": [
+        {
+          "name": "Submit Standup",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZmFhMzBiODNmYzQ1Y2Y5OWVhZDJlYiIsImlhdCI6MTc3ODAzMzQxOSwiZXhwIjoxNzc4NjM4MjE5fQ.C4WGlSsrhKEmBZUdlmuAhruDHXhsUpwbWHvLAkSuWnA",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"yesterday\": \"Completed the login page UI\",\r\n  \"today\": \"Working on dashboard component\",\r\n  \"blockers\": \"Need API docs from backend team\",\r\n  \"hasBlocker\": true\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/standups",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "standups"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get My Standups",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZmFhMzBiODNmYzQ1Y2Y5OWVhZDJlYiIsImlhdCI6MTc3ODAzMzQxOSwiZXhwIjoxNzc4NjM4MjE5fQ.C4WGlSsrhKEmBZUdlmuAhruDHXhsUpwbWHvLAkSuWnA",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5000/api/standups/me",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "standups",
+                "me"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Today's Standups",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5Zjk1NjU2NjVmYjQzZDIyMGY3Y2Q1NCIsImlhdCI6MTc3ODAzMzUyNiwiZXhwIjoxNzc4NjM4MzI2fQ.UppPq3bCFWoWcuschrzzxKm-Zhe1r2LzhlV3iUcbarA",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5000/api/standups/today",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "standups",
+                "today"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Team Standups",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5Zjk1NjU2NjVmYjQzZDIyMGY3Y2Q1NCIsImlhdCI6MTc3ODAzMzUyNiwiZXhwIjoxNzc4NjM4MzI2fQ.UppPq3bCFWoWcuschrzzxKm-Zhe1r2LzhlV3iUcbarA",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5000/api/standups/team",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "standups",
+                "team"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Blockers",
+      "item": [
+        {
+          "name": "Get My Blockers",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZmFhMzBiODNmYzQ1Y2Y5OWVhZDJlYiIsImlhdCI6MTc3ODAzMzQxOSwiZXhwIjoxNzc4NjM4MjE5fQ.C4WGlSsrhKEmBZUdlmuAhruDHXhsUpwbWHvLAkSuWnA",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5000/api/blockers/me",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "blockers",
+                "me"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get All Blockers",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5Zjk1NjU2NjVmYjQzZDIyMGY3Y2Q1NCIsImlhdCI6MTc3ODAzMzUyNiwiZXhwIjoxNzc4NjM4MzI2fQ.UppPq3bCFWoWcuschrzzxKm-Zhe1r2LzhlV3iUcbarA",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5000/api/blockers",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "blockers"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Open Blockers",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5Zjk1NjU2NjVmYjQzZDIyMGY3Y2Q1NCIsImlhdCI6MTc3ODAzMzUyNiwiZXhwIjoxNzc4NjM4MzI2fQ.UppPq3bCFWoWcuschrzzxKm-Zhe1r2LzhlV3iUcbarA",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5000/api/blockers/open",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "blockers",
+                "open"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Resolve Blocker",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5Zjk1NjU2NjVmYjQzZDIyMGY3Y2Q1NCIsImlhdCI6MTc3ODAzMzUyNiwiZXhwIjoxNzc4NjM4MzI2fQ.UppPq3bCFWoWcuschrzzxKm-Zhe1r2LzhlV3iUcbarA",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5000/api/blockers/:id/resolve",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "blockers",
+                ":id",
+                "resolve"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Dashboard",
+      "item": [
+        {
+          "name": "Get Dashboard",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5Zjk1NjU2NjVmYjQzZDIyMGY3Y2Q1NCIsImlhdCI6MTc3ODAzMzUyNiwiZXhwIjoxNzc4NjM4MzI2fQ.UppPq3bCFWoWcuschrzzxKm-Zhe1r2LzhlV3iUcbarA",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5000/api/dashboard",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "dashboard"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}

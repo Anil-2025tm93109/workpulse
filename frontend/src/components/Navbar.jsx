@@ -15,7 +15,7 @@ const Navbar = () => {
       <div className="flex items-center gap-2">
         <h1 className="text-xl font-bold">WorkPulse</h1>
         <span className="text-blue-200 text-sm hidden md:block">
-          Team Standup Tracker
+          Team Standup & Blocker Management System
         </span>
       </div>
 
